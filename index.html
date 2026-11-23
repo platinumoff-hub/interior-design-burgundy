@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow" data-publish>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Студия «Контур» · дизайн интерьера</title>
-<meta name="description" content="Дизайн интерьера в Калининграде: визуализация до начала ремонта, смета в договоре, авторский надзор раз в неделю, оплата по этапам.">
+<meta name="description" content="Дизайн интерьера {{в_городе}}: визуализация до начала ремонта, смета в договоре, авторский надзор раз в неделю, оплата по этапам.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Студия «Контур»">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="vibe.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Студия «Контур»","description":"Дизайн интерьера: визуализация до ремонта, смета в договоре, авторский надзор, оплата по этапам.","url":"https://example.com","image":"https://example.com/assets/og.jpg","telephone":"+70000000000","address":{"@type":"PostalAddress","streetAddress":"ул. Примерная, 12","addressLocality":"Калининград","addressCountry":"RU"},"areaServed":"Калининград","priceRange":"от 1500 ₽ / м²"}
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Студия «Контур»","description":"Дизайн интерьера: визуализация до ремонта, смета в договоре, авторский надзор, оплата по этапам.","url":"https://example.com","image":"https://example.com/assets/og.jpg","telephone":"+70000000000","address":{"@type":"PostalAddress","streetAddress":"ул. Примерная, 12","addressLocality":"{{город}}","addressCountry":"RU"},"areaServed":"{{город}}","priceRange":"от 1500 ₽ / м²"}
 </script>
 <style>
   /* ---- тема: шесть цветов, два шрифта ------------------------------------ */
@@ -110,8 +110,11 @@
       opacity: clamp(0, calc((var(--hxn) - 24) / 10), 1); }
     .hero__scrim { -webkit-mask-image: none; mask-image: none;
       background: linear-gradient(to top, rgb(var(--s) / .94) 0%, rgb(var(--s) / .9) 42%, rgb(var(--s) / .6) 60%, transparent 76%); }
-    .hero__offer { top: auto; left: var(--v-gutter); right: var(--v-gutter); bottom: clamp(1.75rem, 4svh, 2.75rem); justify-content: flex-end; }
-    .hero__inner { gap: var(--v-4); max-width: none; }
+    /* текст прижат к низу (выше нижней полосы iPhone), чтобы оставить больше места комнате */
+    .hero__offer { top: auto; left: var(--v-gutter); right: var(--v-gutter); bottom: calc(.9rem + env(safe-area-inset-bottom, 0px)); justify-content: flex-end; }
+    .hero__inner { gap: var(--v-3); max-width: none; }
+    /* длинную подсказку под кнопкой на телефоне прячем: главное (заголовок, описание, кнопка, согласие) остаётся */
+    .hero__hint { display: none; }
     .hero__title { font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.25rem); line-height: 1.02; }
     .hero__lede { font-size: var(--v-t-base); max-width: 36ch; }
     .hero__cta { margin-top: var(--v-2); flex-direction: column; align-items: flex-start; gap: var(--v-3); }
@@ -297,7 +300,7 @@
         <div class="hero__scrim v-scrim v-scrim--light" aria-hidden="true"></div>
         <div class="hero__offer" data-v-cue="0 1 0 0" data-v-rise="0">
           <div class="hero__inner" data-v-in data-v-stagger="80">
-            <h1 class="v-display v-display--xl hero__title">Дизайн интерьера в Калининграде – проект с реальной сметой</h1>
+            <h1 class="v-display v-display--xl hero__title">Дизайн интерьера {{в_городе}} – проект с реальной сметой</h1>
             <p class="v-lede hero__lede">Визуализация до начала ремонта, смета в договоре, авторский надзор раз в неделю. Оплата по этапам после приёмки.</p>
             <div class="hero__cta">
               <a class="v-btn" href="https://t.me/example_studio">Рассчитать проект</a>
@@ -480,7 +483,7 @@
       <div class="pair__side pair__side--after">
         <div class="pair__inner" data-v-in data-v-stagger="60">
           <h2 class="v-display v-display--md">Услуги, цены и сроки</h2>
-          <p class="v-body">Ориентир за м² площади квартиры. Точную сумму и сроки называем после замеров и фиксируем в договоре. Работаем с новостройками и вторичкой в Калининграде. <span data-slot-optional>Не берём: коммерческие помещения и загородные дома.</span></p>
+          <p class="v-body">Ориентир за м² площади квартиры. Точную сумму и сроки называем после замеров и фиксируем в договоре. Работаем с новостройками и вторичкой {{в_городе}}. <span data-slot-optional>Не берём: коммерческие помещения и загородные дома.</span></p>
           <ul class="rows">
             <li><h3>Эскизный проект</h3><p>Планировка, мудборд и концепция. Для тех, кто будет делать ремонт сам</p><span class="term v-nums">от 2 недель</span><span class="price v-nums">от 1&nbsp;500 ₽ / м²</span></li>
             <li><h3>Дизайн-проект</h3><p>Планировка, 3D-визуализация, рабочие чертежи, смета</p><span class="term v-nums">от 6 недель</span><span class="price v-nums">от 2&nbsp;500 ₽ / м²</span></li>
@@ -524,11 +527,11 @@
             <div class="fin__meta">
               <a class="fin__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
               <p class="fin__msg" data-slot-optional><a href="https://t.me/example_studio" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/70000000000" target="_blank" rel="noopener">WhatsApp</a></p>
-              <span>ул. Примерная, 12, Калининград</span>
+              <span>ул. Примерная, 12, {{город}}</span>
             </div>
           </div>
           <footer class="foot">
-            <span>Студия «Контур» · Калининград</span>
+            <span>Студия «Контур» · {{город}}</span>
             <span>ИП Фамилия И. О. (пример) · ИНН 000000000000</span>
             <a href="policy.html">Политика обработки персональных данных</a>
             <span class="foot__more">Эскизный проект, дизайн-проект, комплектация, авторский надзор</span>
